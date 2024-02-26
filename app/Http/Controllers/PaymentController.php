@@ -16,7 +16,7 @@ class PaymentController extends Controller
                         [
                             'currency'      => 'PHP',
                             'amount'        => 10000,
-                            'description'   => 'Donation',
+                            'description'   => 'text',
                             'name'          => 'Test Product',
                             'quantity'      => 1,
                         ]

@@ -17,7 +17,7 @@ export default function Registration() {
   const { userToken } = useStateContext();
 
   if (userToken) {
-    return <Navigate to="/" />
+    return <Navigate to="/DonorHomepage" />
     }
 
 

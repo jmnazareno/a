@@ -12,27 +12,20 @@ class AuthController extends Controller
 {
     public function signup(SignupRequest $request)
     {
+        $data = $request->validated();
 
-        try{
-            $data = $request->validated();
+        /** @var \App\Models\User $user */
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password'])
+        ]);
+        $token = $user->createToken('main')->plainTextToken;
 
-            /** @var \App\Models\User $user */
-            $user = User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => bcrypt($data['password'])
-            ]);
-            $token = $user->createToken('main')->plainTextToken;
-    
-            return response([
-                'user' => $user,
-                'token' => $token
-            ]);
-        }
-        catch(\Exception $err){
-            return response()->json(['error' => $err->getMessage()], 500);
-        }
-
+        return response([
+            'user' => $user,
+            'token' => $token
+        ]);
     }
 
     public function login(LoginRequest $request)

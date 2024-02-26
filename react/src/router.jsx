@@ -6,7 +6,9 @@ import Login from "./Pages/Login/Login";
 import Registration from "./Pages/Registration/Registration";
 import GuestLayout from "./Pages/Homepage/GuestLayout";
 import NewLayout from "./Pages/NewHomepage/NewLayout";
-import Tryy from "./Pages/NewHomepage/Tryy";
+import Donor from "./Pages/NewHomepage/Donor";
+import Guest from "./Pages/NewHomepage/Guest";
+import Admin from "./Pages/NewHomepage/Admin";
 
 
 const router = createBrowserRouter([
@@ -16,7 +18,7 @@ const router = createBrowserRouter([
       children: [
         {
           path: '/',
-          element: <Homepage />
+          element: <Guest />
         },
         {
           path: "/login",
@@ -25,14 +27,6 @@ const router = createBrowserRouter([
         {
           path: "/registration",
           element: <Registration />,
-        },
-        {
-          path: "/NewLayout",
-          element: <NewLayout />,
-        },
-        {
-          path: "/Tryy",
-          element: <Tryy />,
         },
       ]
     },
@@ -43,7 +37,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/DonorHomepage",
-            element: <DonorHomepage />,
+            element: <Donor />,
+          },
+          {
+            path: "/AdminHomepage",
+            element: <Admin />,
           },
           
         ],

@@ -36,6 +36,12 @@ export default function Login() {
       });
   };
 
+  const { userToken } = useStateContext();
+
+  if (userToken) {
+    return <Navigate to="/DonorHomepage" />
+  }
+
 
   return (
     <div className='Loginbody'>
